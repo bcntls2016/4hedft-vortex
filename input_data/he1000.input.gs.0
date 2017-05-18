@@ -1,0 +1,50 @@
+ &input
+ Lvortex=.true.
+ Vortex_axis='Z'
+ nv = 1
+ omega = 1.d0
+ ximp=0.0d0
+ yimp=0.0d0
+ zimp=0.0d0
+ selec_gs='Xe_He', r_cutoff_gs=2.55d0, umax_gs=2.7939365463E+03
+ nthread=4
+ title   = '4He_1000'
+ n4      = 1000
+ mode    = 3
+ filedenin  = 'den.inp.0'
+ filedenout = 'den.out'
+ nsfiles=1
+ nx = 192
+ ny = 192
+ nz = 192
+ xmax = 38.4d0
+ ymax = 38.4d0
+ zmax = 38.4d0
+ afermi=0.5d0
+ fftwplan="FFTW_PATIENT"
+ npd=13
+ core4='OTC' ! Is ignored if Lsolid=true
+ Lsolid=.true.
+ niter=500000
+ icon=13
+ limp=.false.
+ lexternal=.false.
+ xc=0.0d0
+ yc=0.0d0
+ zc=0.0d0
+ rimpur=3.5d0
+ precie=1.e-5
+ pener=200
+ ppot=1
+ pdenpar=500
+ denmin=-1
+ psimin=-5
+ iron=1
+ ironx=1
+ pafl=0.0001
+ lpaflv=.true.
+ nstepp=3
+ /
+200  0.001
+400  0.003
+500  0.005
