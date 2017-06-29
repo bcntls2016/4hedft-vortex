@@ -11,7 +11,7 @@
  title   = '4He_1000'
  n4      = 1000
  mode    = 3
- filedenin  = 'den.inp.0'
+ filedenin  = 'den.in'
  filedenout = 'den.out'
  nsfiles=1
  nx = 192
