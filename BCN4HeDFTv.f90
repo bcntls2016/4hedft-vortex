@@ -160,7 +160,7 @@ namelist /input/title,fftwplan,nthread,nsfiles,                         &
                 Laverage_P_value,Lexcite_state_external,                    &
                 L_anell, r_anell, a_anell,                                  &
                 L_esfera, r_esfera, a_esfera,                               &
-                Exciplex, Lexciplex_state_fix,r_exc                         
+                Exciplex, Lexciplex_state_fix,r_exc, lconstraint_cm
 !................................ Start main Program ..............................
 call timer(t0)
 

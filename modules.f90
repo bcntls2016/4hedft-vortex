@@ -290,6 +290,7 @@ end module work1
 module constraint
 logical       :: lconstraint=.false.
 logical       :: lconstraint_imp=.false.
+logical       :: lconstraint_cm=.false.
 real (kind=8) :: Intens = 3000.d0 ! Intensity of the constraint.
 real (kind=8) :: n4real ! Intensity of the constraint.
 real (kind=8) :: zdist  = 0.d0    ! distance in z axis between the He com and Ag atom
