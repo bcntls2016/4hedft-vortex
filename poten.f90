@@ -20,6 +20,7 @@ real    (kind=8) :: a0,a1
 real    (kind=8) :: zcom
 real    (kind=8) :: xcm,ycm,zcm
 integer (kind=4) :: ix,iy,iz
+integer (Kind=4) :: n4 
 
 !..............................
 ! Lennard-Jones contribution  .
@@ -116,11 +117,12 @@ Endif
 ! INTRODUCE CONSTRAINT:
 
 If(lconstraint_cm) Then
-	Call R_cm(den,n4real,xcm,ycm,zcm)
+	n4=n4real
+	Call R_cm(den,n4,xcm,ycm,zcm)
 	Do iz=1, nz
 		Do iy=1, ny
 			Do ix=1, nx
-				pot4(ix,iy,iz) = pot4(ix,iy,iz) + Intens*(xcm*x(ix)+ycm*y(iy)+zcm*z(iz))/n4real
+				pot4(ix,iy,iz) = pot4(ix,iy,iz) + Intens*(xcm*x(ix)+ycm*y(iy)+zcm*z(iz))/n4
 			EndDo
 		EndDo
 	EndDo
