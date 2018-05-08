@@ -20,7 +20,6 @@ real    (kind=8) :: a0,a1
 real    (kind=8) :: zcom
 real    (kind=8) :: xcm,ycm,zcm
 integer (kind=4) :: ix,iy,iz
-integer (kind=4) :: n4
 
 !..............................
 ! Lennard-Jones contribution  .
@@ -108,21 +107,20 @@ if(limp) then
 
 end if
 
-
-
 If(lsolid)Then
   forall(ix=1:nx,iy=1:ny,iz=1:nz)
     pot4(ix,iy,iz) = pot4(ix,iy,iz) + penalty(ix,iy,iz)
   end forall 
 Endif
 
+! INTRODUCE CONSTRAINT:
+
 If(lconstraint_cm) Then
-	n4 = n4real
-	Call R_cm(den,n4,xcm,ycm,zcm)
+	Call R_cm(den,n4real,xcm,ycm,zcm)
 	Do iz=1, nz
 		Do iy=1, ny
 			Do ix=1, nx
-				pot4(ix,iy,iz) = pot4(ix,iy,iz) + Intens*(xcm*x(ix)+ycm*y(iy)+zcm*z(iz))*psi(ix,iy,iz)
+				pot4(ix,iy,iz) = pot4(ix,iy,iz) + Intens*(xcm*x(ix)+ycm*y(iy)+zcm*z(iz))/n4real
 			EndDo
 		EndDo
 	EndDo
@@ -130,7 +128,6 @@ EndIf
 
 If(lconstraint)Then
 
-! INTRODUCE CONSTRAINT:
 
   zcom = 0.d0
   do iz=1,nz
