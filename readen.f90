@@ -220,6 +220,7 @@ select case(mode)
   case(5)   ! Continue a calculation, read a previous density and we imprint a vortex
 !-------------------------------------------------------------------
 
+     r_clust = ((3.0d0*npart)/(fourpi*densat))**0.3333333333333d0
      open(unit=1,file=fileden,status='old')
      call titols(1,cchar,isalto)
      read(1,*) xmaxp,ymaxp,zmaxp,hxp,hyp,hzp,nxp,nyp,nzp,limp,ximp,yimp,zimp
